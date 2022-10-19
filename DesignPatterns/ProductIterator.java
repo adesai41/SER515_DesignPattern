@@ -1,21 +1,53 @@
-public class ProductIterator implements Listiterator {
+import java.util.Iterator;
 
-	private ClassProductList classProductList;
+public class ProductIterator implements Iterator  {
 
-	public boolean hasNext() {
-		return false;
+	private ClassProductList ProductList;
+	private int CurrentproductNumber=-1;
+
+	ProductIterator(ClassProductList productList)
+	{
+		ProductList=productList;
 	}
 
-	public Product Next() {
-		return null;
+	public boolean hasNext()
+	{
+		return CurrentproductNumber < ProductList.size()-1;
 	}
 
-	public void MoveToHead() {
-
+	public Product next() {
+		if(hasNext())
+		{
+			CurrentproductNumber++;
+			return  ProductList.get(CurrentproductNumber);
+		}
+		else
+		{
+			return  null;
+		}
 	}
+
+	//public void MoveToHead() {
+
+	//}
 
 	public void Remove() {
+		ProductList.remove(CurrentproductNumber);
+	}
 
+	Product next(String ProductName)
+	{
+		Product thisProduct;
+		thisProduct=(Product)next();
+		while(thisProduct!=null)
+		{
+			if(ProductName.compareTo(thisProduct.toString())==0)
+			{
+				return thisProduct;
+			}
+			thisProduct=(Product) next();
+		}
+		return null;
 	}
 
 }

@@ -1,4 +1,5 @@
-public class MeatProductMenu implements ProductMenu {
+import java.awt.*;
+public class MeatProductMenu extends ProductMenu {
 
 	public void showMenu() {
 

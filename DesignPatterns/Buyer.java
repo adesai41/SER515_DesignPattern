@@ -1,4 +1,4 @@
-public class Buyer extends Person {
+public class Buyer {
 
 	public void showMenu() {
 

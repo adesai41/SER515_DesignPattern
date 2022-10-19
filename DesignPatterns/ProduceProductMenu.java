@@ -1,4 +1,4 @@
-public class ProduceProductMenu implements ProductMenu {
+public class ProduceProductMenu extends ProductMenu {
 
 	public void showMenu() {
 

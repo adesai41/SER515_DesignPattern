@@ -1,4 +1,5 @@
-public class Seller extends Person {
+import DesignPatternPackage.*;
+public class Seller  {
 
 	public void showMenu() {
 

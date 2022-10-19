@@ -1,4 +1,4 @@
-public class OfferingIterator implements Listiterator {
+public class OfferingIterator  {
 
 	private OfferingList offeringList;
 
