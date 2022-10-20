@@ -1,10 +1,10 @@
-import java.util.Collection;
-public class OfferingList extends ArrayList {
+import java.util.ArrayList;
+public class OfferingList extends ArrayList<Offering> {
 
-	private OfferingIterator offeringIterator;
+	OfferingList()
+	{
 
-	private Collection<OfferingMenu> offeringMenu;
+	}
 
-	private Trading trading;
 
 }

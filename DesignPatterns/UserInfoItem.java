@@ -2,8 +2,7 @@
 
 public class UserInfoItem {
 
-    public enum USER_TYPE { Student, Instructor }
+    public enum USER_TYPE { Seller, Buyer }
 
     String strUserName;
-    USER_TYPE UserType; // 0 : Student, 1: Instructor
-}
+    USER_TYPE UserType; }

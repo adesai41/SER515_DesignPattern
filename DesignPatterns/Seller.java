@@ -1,12 +1,34 @@
-import DesignPatternPackage.*;
-public class Seller  {
+public class Seller extends Person  {
+	Seller(){
+		type=0;
+	}
 
-	public void showMenu() {
+	public void CreateProductMenu(Product thisProduct, int thisProductType)
+	{
+		if(thisProductType==0)
+		{
+			thisProductMenu = new ProduceProductMenu();
+		}
+		else
+		{
+			thisProductMenu = new MeatProductMenu();
+		}
+	}
+
+	public boolean showMenu() {
+		super.ShowMenu();
+		showAddButton();
+		showViewButton();
+		showComboxes();
+		showRadioButton();
+		show();
+
+		return ifLogout();
 
 	}
 
-	public void CreateProductMenu() {
-
+	public ProductMenu CreateProductMenu() {
+		return null;
 	}
 
 }

@@ -15,7 +15,7 @@ public class ProductIterator implements Iterator  {
 		return CurrentproductNumber < ProductList.size()-1;
 	}
 
-	public Product next() {
+	public Object next() {
 		if(hasNext())
 		{
 			CurrentproductNumber++;
@@ -35,7 +35,7 @@ public class ProductIterator implements Iterator  {
 		ProductList.remove(CurrentproductNumber);
 	}
 
-	Product next(String ProductName)
+	Object next(String ProductName)
 	{
 		Product thisProduct;
 		thisProduct=(Product)next();
@@ -45,7 +45,7 @@ public class ProductIterator implements Iterator  {
 			{
 				return thisProduct;
 			}
-			thisProduct=(Product) next();
+			thisProduct=(Product)next();
 		}
 		return null;
 	}

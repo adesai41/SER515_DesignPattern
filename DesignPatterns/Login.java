@@ -1,4 +1,3 @@
-package DesignPattern;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,12 +13,12 @@ class Login extends JDialog {
     private JButton buttonExit = new JButton();
     private JTextField UserNameText = new JTextField();
     private JPasswordField PasswordText = new JPasswordField();
-    private JRadioButton StudentRadio = new JRadioButton();
-    private JRadioButton InstructorRadio = new JRadioButton();
+    private JRadioButton SellerRadio = new JRadioButton();
+    private JRadioButton BuyerRadio = new JRadioButton();
     private ButtonGroup buttonGroup1 = new ButtonGroup();
     ////// Attributes Added By me
     private String UserBox = null;
-    //private UserInfoItem.USER_TYPE UserType = UserInfoItem.USER_TYPE.Student; // default to Student
+    private UserInfoItem.USER_TYPE UserType = UserInfoItem.USER_TYPE.Seller; // default to Student
 
     Login() {
         try {
@@ -44,21 +43,21 @@ class Login extends JDialog {
         buttonExit.addActionListener(e -> buttonExit_actionPerformed());
         UserNameText.setBounds(new Rectangle(119, 52, 144, 22));
         PasswordText.setBounds(new Rectangle(118, 119, 147, 22));
-        StudentRadio.setSelected(true);
-        StudentRadio.setText("Student");
-        StudentRadio.setBounds(new Rectangle(37, 164, 103, 26));
-        InstructorRadio.setText("Instructor");
-        InstructorRadio.setBounds(new Rectangle(177, 162, 103, 26));
+        SellerRadio.setSelected(true);
+        SellerRadio.setText("Seller");
+        SellerRadio.setBounds(new Rectangle(37, 164, 103, 26));
+        BuyerRadio.setText("Buyer");
+        BuyerRadio.setBounds(new Rectangle(177, 162, 103, 26));
         this.getContentPane().add(jLabel1, null);
         this.getContentPane().add(jLabel2, null);
         this.getContentPane().add(loginButton, null);
         this.getContentPane().add(buttonExit, null);
         this.getContentPane().add(UserNameText, null);
         this.getContentPane().add(PasswordText, null);
-        this.getContentPane().add(StudentRadio, null);
-        this.getContentPane().add(InstructorRadio, null);
-        buttonGroup1.add(StudentRadio);
-        buttonGroup1.add(InstructorRadio);
+        this.getContentPane().add(SellerRadio, null);
+        this.getContentPane().add(BuyerRadio, null);
+        buttonGroup1.add(SellerRadio);
+        buttonGroup1.add(BuyerRadio);
     }
 
     private void loginButton_actionPerformed(ActionEvent e) {
@@ -66,14 +65,14 @@ class Login extends JDialog {
         m_bExit = false;
         System.out.println("login clicked");
         try {
-            if (StudentRadio.isSelected())//// student
+            if (SellerRadio.isSelected())//// seller
             {
-                //UserType = UserInfoItem.USER_TYPE.Student; /// 0 for student
-                file = new BufferedReader(new FileReader("StuInfo.txt"));
-            } else// instructor
+                UserType = UserInfoItem.USER_TYPE.Seller; /// 0 for student
+                file = new BufferedReader(new FileReader("SellerInfo.txt"));
+            } else// buyer
             {
-                //UserType = UserInfoItem.USER_TYPE.Instructor; // 1 for instructor
-                file = new BufferedReader(new FileReader("InsInfor.txt"));
+                UserType = UserInfoItem.USER_TYPE.Buyer; // 1 for instructor
+                file = new BufferedReader(new FileReader("BuyerInfo.txt"));
             }
             UserBox = UserNameText.getText();
             String PasswordBox = new String(PasswordText.getPassword());
@@ -93,31 +92,26 @@ class Login extends JDialog {
 
     }
 
-    /*
-     * get the user name from aline UserName:Password
-     */
+
     private String GetUserName(String aline) {
         int Sep = aline.lastIndexOf(':');
         return aline.substring(0, Sep);
     }
 
-    /*
-     * get the password from aline UserName:Password
-     */
+
     private String GetPassword(String aline) {
         int Sep = aline.lastIndexOf(':');
         return aline.substring(Sep + 1);
     }
 
-    /* after login get the UserName of the login interface */
     String GetUserName() {
         return UserBox;
     }
 
     /* after login get the userType of the login interface */
-    //UserInfoItem.USER_TYPE GetUserType() {
-        //return UserType;
-    //}
+    UserInfoItem.USER_TYPE GetUserType() {
+        return UserType;
+    }
 
     boolean isExit() {
         return m_bExit;
@@ -126,14 +120,5 @@ class Login extends JDialog {
     private void buttonExit_actionPerformed() {
         m_bExit = true;
         dispose();
-    }
-    public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-
-            }
-        });
     }
 }

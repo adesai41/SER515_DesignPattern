@@ -1,6 +1,30 @@
-public class Buyer {
+public class Buyer extends Person{
+	Buyer()
+	{
+		type=1;
+	}
 
-	public void showMenu() {
+	public void CreateProductMenu(Product thisProduct, int thisProductType)
+	{
+		if(thisProductType==0)
+		{
+			thisProductMenu = new ProduceProductMenu();
+		}
+		else
+		{
+			thisProductMenu = new MeatProductMenu();
+		}
+	}
+
+	public boolean showMenu() {
+		super.ShowMenu();
+		showAddButton();
+		showViewButton();
+		showComboxes();
+		showRadioButton();
+		show();
+
+		return ifLogout();
 
 	}
 

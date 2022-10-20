@@ -1,19 +1,65 @@
-public abstract class Person {
+import java.util.*;
 
-	private ProductMenu theProductMenu;
+abstract public class Person {
+	int type =0;
+	String UserName;
+	ClassProductList ProductList;
+	ProductMenu thisProductMenu;
+	Product CurrentProduct;
+
+	Person(){
+		ProductList=new ClassProductList();
+	}
+
+	abstract public void CreateProductMenu(Product thisProduct, int thisProductType);
+
 
 	private ProductMenu productMenu;
 
-	public abstract void showMenu();
 
-	public abstract void showAddButton();
 
-	public abstract void showViewButton();
+	void showAddButton(){
+		thisProductMenu.showAddButton();
+	}
 
-	public abstract void showRadioButton();
+	void showViewButton(){
+		thisProductMenu.showViewButton();
+	}
+	void showComboxes() {thisProductMenu.showComboxes();	}
 
-	public abstract void showLabels();
+	void showRadioButton(){
+		thisProductMenu.showRadioButton();
+	}
+	void show(){
+		thisProductMenu.setVisible(true);
+	}
 
-	public abstract ProductMenu CreateProductMenu();
+	boolean ifLogout()
+	{
+		return thisProductMenu.ifLogout();
+	}
+
+	public boolean ShowMenu(){
+		Iterator theIter = CurrentProduct.TradingList.iterator();
+		thisProductMenu.thisProduct = CurrentProduct;
+		Trading thisTrading;
+		while (theIter.hasNext()) {
+			thisTrading = (Trading) theIter.next();
+			thisProductMenu.TradingCombox.addItem(thisTrading);
+		}
+		return false;
+	}
+
+	ClassProductList GetProductList() {
+		return ProductList;
+	}
+
+	void AddProduct(Product thisProduct) {
+		ProductList.add(thisProduct);
+	}
+
+	void showLabels(){}
+
+
 
 }

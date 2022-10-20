@@ -20,9 +20,19 @@ public class Trading {
 		return new OfferingIterator(thisOfferingList);
 	}
 
-	private OfferingList offeringList;
+	public String toString()
+	{
+		return TradingName;
+	}
 
-	private Product product;
+	String getDueDateString()
+	{
+		DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
+		return dateFormat.format(DueDate);
+	}
+
+
+	//private Product product;
 
 	public void accept(NodeVisitor visitor) {
 	visitor.visitTrading(this);
