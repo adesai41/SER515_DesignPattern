@@ -1,5 +1,6 @@
 import java.util.*;
-
+//this class uses visitor design pattern. This provides capacity for the reminder class to
+// visit products and trades
 
 public class ReminderVisitor extends NodeVisitor {
 
@@ -32,7 +33,8 @@ public class ReminderVisitor extends NodeVisitor {
 		int nDueDate = calendar.get(Calendar.DAY_OF_YEAR);
 		if (nDueDate <= (ntoday + 1) && nDueDate >= ntoday) /// upcoming
 		{
-			m_Reminder.listUpcoming.add("today is " + today.toString() + " " + trading.TradingName + " Due Date is "
+
+			m_Reminder.listUpcoming.add("today is " + today + " " + trading.TradingName + " Due Date is "
 					+ trading.getDueDateString());
 		}
 		if (nDueDate < ntoday) {

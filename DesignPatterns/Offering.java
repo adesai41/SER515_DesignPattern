@@ -1,7 +1,7 @@
 import java.util.*;
 public class Offering {
     String thisOfferer = "";
-    String OfferFileName = "";
+    String OfferFileName = "add your offer";
     Date thisSubmitData = new Date();
     int thePrice;
     private boolean offered = false;
@@ -13,7 +13,7 @@ public class Offering {
     public String toString() {
         String string;
         string = thisOfferer + "  " + OfferFileName + " Price=" + getPriceInt() + "  ";
-        if (isReported())
+        if (isOffered())
             string += "offered";
         else
             string += "not offered";
@@ -22,12 +22,12 @@ public class Offering {
     }
 
     String getPriceString() {
-        if (isReported())
+        if (isOffered())
             return "" + thePrice;
         else
             return "-1";
     }
-    void setDes() {
+    void setOffer() {
         this.offered = true;
     }
 
@@ -35,11 +35,7 @@ public class Offering {
         return thePrice;
     }
 
-    void setReported() {
-        this.offered = true;
-    }
-
-    private boolean isReported() {
+    private boolean isOffered() {
         return offered;
     }
 }

@@ -1,5 +1,7 @@
 import java.util.Iterator;
-public class OfferingIterator  {
+//this class uses iterator design pattern where user can loop through
+// each offer using next, hasnext,movetohead function
+public class OfferingIterator implements Iterator {
 
 	private OfferingList offeringList;
 

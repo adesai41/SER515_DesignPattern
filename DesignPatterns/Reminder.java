@@ -1,8 +1,15 @@
+//this class is implemented in both facade and visitor pattern
+//--------FACADE DESIGN PATTERN-----------
+// It is conneccted to the main facade class which acts like an interface
+// and allows to navigate through different classes based on operation
+//---------------------------------------
+//-------VISITOR DESIGN PATTERN-----------
+//This class will use the visitor to visit all the
+//products and trading of a given user.
+//---------------------------------------
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-
-
 
 class Reminder extends JDialog {
     private JLabel jLabel1 = new JLabel();
@@ -41,6 +48,7 @@ class Reminder extends JDialog {
 
     void showReminder(ClassProductList products) {
         ReminderVisitor visitor = new ReminderVisitor(this);
+        products.InitializeFromFile();
         visitor.visitFacade(Auction.theFacade);
         setVisible(true);
     }

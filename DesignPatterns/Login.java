@@ -3,10 +3,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
-
+//this class is a part of FACADE DESIGN PATTERN.
+// It is conneccted to the main facade class which acts like an interface
+// and allows to navigate through different classes based on operation
+//---------------------------------------
 class Login extends JDialog {
 
     private boolean m_bExit = false;
+    //creating gui for login panel
     private JLabel jLabel1 = new JLabel();
     private JLabel jLabel2 = new JLabel();
     private JButton loginButton = new JButton();
@@ -16,9 +20,10 @@ class Login extends JDialog {
     private JRadioButton SellerRadio = new JRadioButton();
     private JRadioButton BuyerRadio = new JRadioButton();
     private ButtonGroup buttonGroup1 = new ButtonGroup();
-    ////// Attributes Added By me
     private String UserBox = null;
-    private UserInfoItem.USER_TYPE UserType = UserInfoItem.USER_TYPE.Seller; // default to Student
+    private UserInfoItem.USER_TYPE UserType = UserInfoItem.USER_TYPE.Seller;//default selection
+    // will be of seller
+
 
     Login() {
         try {
@@ -28,7 +33,7 @@ class Login extends JDialog {
             e.printStackTrace();
         }
     }
-
+//initialize gui panel. used radio button,labels and buttons to create gui
     private void jbInit() {
         this.getContentPane().setLayout(null);
         jLabel1.setText("UserName");
@@ -59,26 +64,29 @@ class Login extends JDialog {
         buttonGroup1.add(SellerRadio);
         buttonGroup1.add(BuyerRadio);
     }
-
+//perform login validation on button click. Here we read
+// through respective files to validate user
     private void loginButton_actionPerformed(ActionEvent e) {
         BufferedReader file;
         m_bExit = false;
-        System.out.println("login clicked");
+
         try {
-            if (SellerRadio.isSelected())//// seller
+            if (SellerRadio.isSelected())// seller
             {
-                UserType = UserInfoItem.USER_TYPE.Seller; /// 0 for student
+                UserType = UserInfoItem.USER_TYPE.Seller;
                 file = new BufferedReader(new FileReader("SellerInfo.txt"));
+
             } else// buyer
             {
-                UserType = UserInfoItem.USER_TYPE.Buyer; // 1 for instructor
+                UserType = UserInfoItem.USER_TYPE.Buyer;
                 file = new BufferedReader(new FileReader("BuyerInfo.txt"));
             }
             UserBox = UserNameText.getText();
             String PasswordBox = new String(PasswordText.getPassword());
             String LoginName = null;
             String aline, UserName, Password;
-            while ((aline = file.readLine()) != null) {
+            while ((aline = file.readLine()) != null)
+            {
                 UserName = GetUserName(aline);
                 Password = GetPassword(aline);
                 if (UserName.compareTo(UserBox) == 0 && Password.compareTo(PasswordBox) == 0)
@@ -108,7 +116,7 @@ class Login extends JDialog {
         return UserBox;
     }
 
-    /* after login get the userType of the login interface */
+
     UserInfoItem.USER_TYPE GetUserType() {
         return UserType;
     }

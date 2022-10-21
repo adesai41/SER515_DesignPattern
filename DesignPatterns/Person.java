@@ -1,5 +1,6 @@
 import java.util.*;
-
+//here bridge design pattern. the
+//bridge will help to load the appropriate menu for either buyer or seller
 abstract public class Person {
 	int type =0;
 	String UserName;
@@ -12,9 +13,6 @@ abstract public class Person {
 	}
 
 	abstract public void CreateProductMenu(Product thisProduct, int thisProductType);
-
-
-	private ProductMenu productMenu;
 
 
 

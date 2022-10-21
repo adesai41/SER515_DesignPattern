@@ -8,7 +8,6 @@ public class SellerTradingMenu extends TradingMenu
 {
     private Trading thisTrading;
     private JComboBox<Offering> CombOfferList = new JComboBox<>();
-////////////////////////
 
 
     private JTextField tbTradingName = new JTextField();
@@ -50,8 +49,8 @@ public class SellerTradingMenu extends TradingMenu
         buttonPrice.setText("Price");
         buttonPrice.setBounds(new Rectangle(458, 199, 79, 29));
         buttonPrice.addActionListener(this::buttonPrice_actionPerformed);
-        buttonDes.setText("Description");
-        buttonDes.setBounds(new Rectangle(365, 249, 79, 29));
+        buttonDes.setText("Set Offer");
+        buttonDes.setBounds(new Rectangle(365, 249, 100, 29));
         buttonDes.addActionListener(this::buttonDes_actionPerformed);
         buttonClose.setText("Close");
         buttonClose.setBounds(new Rectangle(86, 253, 79, 29));
@@ -108,7 +107,7 @@ public class SellerTradingMenu extends TradingMenu
         while(iter.hasNext() )
         {
             Offering aOffer=(Offering) iter.next();
-            aOffer.setDes();
+            aOffer.setOffer();
         }
         refreshOfferingList();
     }

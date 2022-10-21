@@ -55,8 +55,7 @@ class ProductSelectDlg extends JDialog {
 
 
     Product ShowDlg(ClassProductList productList) {
-
-        // 0 HighLevel presentation 1 LowLevel Experiment
+        productList.InitializeFromFile();
         ProductIterator theIterator = new ProductIterator(productList);
         Product thisProduct;
         while ((thisProduct = (Product) theIterator.next()) != null) /// end of the list

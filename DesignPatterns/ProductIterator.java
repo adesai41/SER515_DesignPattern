@@ -1,5 +1,6 @@
 import java.util.Iterator;
-
+//this class uses iterator design pattern where user can loop through
+// each product using next, hasNext,movetohead function
 public class ProductIterator implements Iterator  {
 
 	private ClassProductList ProductList;
@@ -27,11 +28,11 @@ public class ProductIterator implements Iterator  {
 		}
 	}
 
-	//public void MoveToHead() {
+	public void MoveToHead() {
 
-	//}
+	}
 
-	public void Remove() {
+	public void remove() {
 		ProductList.remove(CurrentproductNumber);
 	}
 

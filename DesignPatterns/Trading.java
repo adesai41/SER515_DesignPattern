@@ -25,14 +25,10 @@ public class Trading {
 		return TradingName;
 	}
 
-	String getDueDateString()
-	{
+	String getDueDateString() {
 		DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
 		return dateFormat.format(DueDate);
 	}
-
-
-	//private Product product;
 
 	public void accept(NodeVisitor visitor) {
 	visitor.visitTrading(this);

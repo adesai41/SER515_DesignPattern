@@ -1,9 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+//this class is a part of FACADE DESIGN PATTERN.
+// It is conneccted to the main facade class which acts like an interface
+// and allows to navigate through different classes based on operation
+//---------------------------------------
+//this class also implements FACTORY DESIGN PATTERN. It determines which
+// classes are to be instatiated based on the fucntion called
 abstract class ProductMenu extends JDialog {
-
+//creaating a gui for menu
 	Product thisProduct;
 	private boolean bLogout=true;
 
@@ -33,7 +38,7 @@ abstract class ProductMenu extends JDialog {
 	}
 
 	private void jbInit() {
-		buttonChangeProduct.setText("ChangeProduct");
+		buttonChangeProduct.setText("Change");
 		buttonChangeProduct.setBounds(new Rectangle(101, 211, 73, 37));
 		buttonChangeProduct.addActionListener(this::buttonChangeProduct_actionPerformed);
 		this.getContentPane().setLayout(null);
@@ -44,17 +49,17 @@ abstract class ProductMenu extends JDialog {
 		this.getContentPane().add(buttonChangeProduct, null);
 		this.getContentPane().add(buttonLogout, null);
 	}
-	public void ShowMenu(){}
 
-	public abstract void showAddButton();
 
-	public abstract void showViewButton();
+	abstract void showAddButton();
 
-	public abstract void showRadioButton();
+	abstract void showViewButton();
 
-	public abstract void showLabels();
+	abstract void showRadioButton();
 
-	public abstract void showComboxes();
+	abstract void showLabels();
+
+	abstract void showComboxes();
 
 	void TradingViewButton_actionPerformed()
 	{
@@ -87,7 +92,7 @@ abstract class ProductMenu extends JDialog {
 	}
 	private void buttonLogout_actionPerformed(ActionEvent e)
 	{
-		bLogout=false;
+		bLogout=true;
 		dispose();
 	}
 

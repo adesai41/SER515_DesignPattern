@@ -1,3 +1,8 @@
+//here factory design pattern is used to determine which class is to be
+//instatiated after login
+//----------------------------------------
+//this class is also a part of bridge design pattern.
+//bridge design pattern allows to load appropriate menu for buyer or seller
 public class Seller extends Person  {
 	Seller(){
 		type=0;
@@ -5,7 +10,7 @@ public class Seller extends Person  {
 
 	public void CreateProductMenu(Product thisProduct, int thisProductType)
 	{
-		if(thisProductType==0)
+		if(thisProductType==1)
 		{
 			thisProductMenu = new ProduceProductMenu();
 		}
@@ -15,7 +20,7 @@ public class Seller extends Person  {
 		}
 	}
 
-	public boolean showMenu() {
+	public boolean ShowMenu() {
 		super.ShowMenu();
 		showAddButton();
 		showViewButton();
@@ -27,8 +32,6 @@ public class Seller extends Person  {
 
 	}
 
-	public ProductMenu CreateProductMenu() {
-		return null;
-	}
+
 
 }

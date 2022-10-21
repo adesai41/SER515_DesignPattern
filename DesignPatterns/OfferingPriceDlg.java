@@ -21,7 +21,7 @@ class OfferingPriceDlg extends JDialog {
     }
 
     private void jbInit() {
-        jLabel1.setText("Offering File Name");
+        jLabel1.setText("Initial Offer");
         jLabel1.setBounds(new Rectangle(23, 30, 121, 18));
         this.getContentPane().setLayout(null);
         tfPrice.setBounds(new Rectangle(25, 66, 100, 22));
@@ -37,7 +37,7 @@ class OfferingPriceDlg extends JDialog {
 
     void show(Offering offering) {
         theOffering = offering;
-        tfPrice.setText("" + theOffering.getPriceInt());
+        tfPrice.setText(" this " + theOffering.getPriceInt());
         labelOfferingFileName.setText(theOffering.OfferFileName);
         setVisible(true);
     }
